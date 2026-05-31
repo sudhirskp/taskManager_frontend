@@ -38,7 +38,7 @@ This project is the frontend client for a full-stack Task Manager application. I
 
 **Backend Repository:** https://github.com/sudhirskp/taskManager
 
-**Live Demo:** Deployed on Netlify
+**Live Demo:** https://managertaskk.netlify.app/login
 
 ## 2. Features
 
