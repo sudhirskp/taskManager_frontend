@@ -6,6 +6,9 @@ const STATUS_OPTIONS = [
   { value: "Done", label: "Done" },
 ];
 
+const inputClass =
+  "w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500";
+
 const TaskForm = ({ task, onSubmit, onCancel }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -38,15 +41,15 @@ const TaskForm = ({ task, onSubmit, onCancel }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm mb-6"
+      className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm mb-6"
     >
-      <h3 className="font-semibold text-slate-800 mb-4">
+      <h3 className="font-semibold text-slate-800 dark:text-slate-100 mb-4">
         {task ? "Edit Task" : "Create New Task"}
       </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">
+          <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
             Title
           </label>
           <input
@@ -54,19 +57,19 @@ const TaskForm = ({ task, onSubmit, onCancel }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={inputClass}
             placeholder="Task title"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">
+          <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
             Status
           </label>
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={inputClass}
           >
             {STATUS_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -78,14 +81,14 @@ const TaskForm = ({ task, onSubmit, onCancel }) => {
       </div>
 
       <div className="mb-4">
-        <label className="block text-sm font-medium text-slate-700 mb-1">
+        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
           Description
         </label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={2}
-          className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+          className={`${inputClass} resize-none`}
           placeholder="Task description (optional)"
         />
       </div>
@@ -103,7 +106,7 @@ const TaskForm = ({ task, onSubmit, onCancel }) => {
           <button
             type="button"
             onClick={onCancel}
-            className="px-5 py-2 text-slate-600 bg-slate-100 font-medium rounded-lg hover:bg-slate-200 transition-colors"
+            className="px-5 py-2 text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 font-medium rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
           >
             Cancel
           </button>

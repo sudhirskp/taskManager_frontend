@@ -74,16 +74,16 @@ const Dashboard = () => {
     tasks.filter((task) => task.status === status);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 className="text-2xl font-bold text-slate-800 mb-6">
+        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6">
           Welcome, {userName}
         </h2>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+          <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 rounded-lg text-sm">
             {error}
           </div>
         )}
@@ -99,9 +99,11 @@ const Dashboard = () => {
             <span className="spinner spinner-lg" />
           </div>
         ) : tasks.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-xl border border-slate-200">
-            <p className="text-slate-500 text-lg mb-1">No tasks yet</p>
-            <p className="text-slate-400 text-sm">
+          <div className="text-center py-16 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+            <p className="text-slate-500 dark:text-slate-400 text-lg mb-1">
+              No tasks yet
+            </p>
+            <p className="text-slate-400 dark:text-slate-500 text-sm">
               Create your first task using the form above
             </p>
           </div>
